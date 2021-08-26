@@ -106,3 +106,35 @@ git status
 git status
 git push origin master
 git status
+git add .
+git commit -m "First changes"
+git push origin master
+git status
+node server.js
+node server.js
+node server.js
+cd user524
+ls
+cd sample-master/
+cd internal/
+node server.jss
+ls
+cd sample-master/
+cd external/
+node server.js
+git status
+git branch
+git status
+git branch
+git new-feature-X
+git branch  new-feature-X
+git checkout new-feature-X
+git status
+git add .
+git commit -m "fix1"
+git status
+git add .
+git commit -m "fix1"
+git add
+git add .
+git commit -m "fix1"
