@@ -87,3 +87,9 @@ git add .
 git commit -m "Initial commit"
 git remote add origin https://github.com/AchuthaC/external.git
 git init
+git add .
+git commit -m "Initial commit"
+git remote add origin https://github.com/AchuthaC/external.git
+git status
+git status
+ git init 
