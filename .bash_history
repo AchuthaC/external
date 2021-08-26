@@ -72,3 +72,10 @@ git commit -m "adding files"
 git status
 git config --global --list
 git init
+git add .
+git commit -m "Initial commit"
+git remote add origin https://github.com/AchuthaC/internal.git
+git push -u origin master
+git push -u origin master
+git push -u origin master
+git init
