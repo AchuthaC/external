@@ -93,3 +93,9 @@ git remote add origin https://github.com/AchuthaC/external.git
 git status
 git status
  git init 
+git add .
+git commit -m "Initial commit"
+git remote add origin https://github.com/AchuthaC/external.git
+git remote set-url origin https://github.com/AchuthaC/external.git
+git push -u origin master
+git status
