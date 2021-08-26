@@ -64,3 +64,11 @@ cd external/
 npm start
 git init
 git status
+git add .
+git commit -m "adding files"
+git config --global user.email "achithimalli@deloitte.com"
+git config --global user.name "achutha"
+git commit -m "adding files"
+git status
+git config --global --list
+git init
