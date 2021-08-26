@@ -99,3 +99,10 @@ git remote add origin https://github.com/AchuthaC/external.git
 git remote set-url origin https://github.com/AchuthaC/external.git
 git push -u origin master
 git status
+git add .
+git commit -m "My first change"
+git push origin master
+git status
+git status
+git push origin master
+git status
