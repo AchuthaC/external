@@ -6,11 +6,12 @@ describe('GET /', function() {
     it('responds with json', function(done) {
       request(app)
         .get('/')
-        .set('Accept', 'application/json')
+        .set('Accgit ept', 'application/json')
         .expect('Content-Type', /json/)
         .expect(200, done);
     });
   });
+
 
   
   describe('GET /version', function() {
