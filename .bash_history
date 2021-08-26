@@ -79,3 +79,7 @@ git push -u origin master
 git push -u origin master
 git push -u origin master
 git init
+git add .
+git commit -m "Initial commit"
+git remote add origin https://github.com/AchuthaC/external.git
+git init
