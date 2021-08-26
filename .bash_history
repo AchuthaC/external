@@ -138,3 +138,7 @@ git commit -m "fix1"
 git add
 git add .
 git commit -m "fix1"
+git commit -a -m "fix1"
+gti checkout master
+git checkout master
+git commit -m "fix1"
