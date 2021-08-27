@@ -334,3 +334,10 @@ git ad .
 git add .
 git branch
 git status
+git add .
+git commit -m "push"
+git push origin master
+git branch
+git push -u origin master
+cd .
+git status
