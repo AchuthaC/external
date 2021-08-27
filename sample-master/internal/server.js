@@ -1,4 +1,13 @@
 'use strict';
+// bring in firestore
+const Firestore = require("@google-cloud/firestore");
+
+// initialize Firestore and set project id from env var
+const firestore = new Firestore(
+    {
+        projectId: process.env.GOOGLE_CLOUD_PROJECT
+    }
+);
 
 // express is a nodejs web server
 // https://www.npmjs.com/package/express
@@ -32,9 +41,10 @@ app.get('/', (req, res) => {
 });
 
 // version endpoint to provide easy convient method to demonstrating tests pass/fail
-app.get('/version', (req, res) => {
-    res.json({ version: '1.0.0' });
+app.get('/events', (req, res) => {
+    getEvents(req, res);
 });
+
 
 
 // mock events endpoint. this would be replaced by a call to a datastore
@@ -53,11 +63,13 @@ app.post('/event', (req, res) => {
         description: req.body.description,
         id : mockEvents.events.length + 1
      }
-    // add to the mock array
-    mockEvents.events.push(ev);
-    // return the complete array
-    res.json(mockEvents);
+// this will create the Events collection if it does not exist
+    firestore.collection("Events").add(ev).then(ret => {
+        getEvents(req, res);
+    });
+
 });
+
 
 app.use((err, req, res, next) => {
     console.error(err.stack);
@@ -73,3 +85,23 @@ const server = app.listen(PORT, () => {
 });
 
 module.exports = app;
+
+function getEvents(req, res) {
+    firestore.collection("Events").get()
+        .then((snapshot) => {
+            if (!snapshot.empty) {
+                const ret = { events: []};
+                snapshot.docs.forEach(element => {
+                    ret.events.push(element.data());
+                }, this);
+                console.log(ret);
+                res.json(ret);
+            } else {
+                 res.json(mockEvents);
+            }
+        })
+        .catch((err) => {
+            console.error('Error getting events', err);
+            res.json(mockEvents);
+        });
+};
